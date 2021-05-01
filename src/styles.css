@@ -1,0 +1,162 @@
+html body {
+  width: 100%;
+  height: 100%;
+}
+.btn,
+.jumbotron,
+.nav :hover {
+  border-radius: 0px;
+}
+
+.card-cus {
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #modalProject {
+    z-index: 9999999;
+  }
+  #addProjectButton {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    height: 70px;
+    width: 70px;
+    z-index: 20;
+  }
+  #plusIcon {
+    font-size: 1.7em;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  /* For mobile phones: */
+  #addProjectButton {
+    margin-bottom: 20px;
+  }
+}
+
+body {
+  font-family: "Acme", sans-serif;
+  background: #f0eeee;
+  max-width: 100%;
+  max-height: 100%;
+}
+.text-strike {
+  text-decoration: line-through;
+}
+.custom-check {
+  height: 18px;
+  width: 18px;
+}
+.hidden {
+  display: none;
+}
+.menuIcon {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 24px;
+  font-size: 20px;
+  background: #e43411;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+}
+.menuIconText {
+  margin-top: 1px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 22px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+@media only screen and (min-width: 710px) {
+  .homeM {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .homeD {
+    display: none;
+  }
+  .homeM {
+    background: rgb(33, 26, 26);
+    min-height: 100vh;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  .homeImgM {
+    width: 70%;
+    height: auto;
+    margin-top: 15px;
+    text-align: center;
+  }
+  .textLM {
+    padding: 0;
+    font-family: Acme;
+    font-weight: Regular;
+    font-size: 44px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px #441414;
+    z-index: 9999999999;
+    text-align: center;
+  }
+  .loginHome {
+    color: #ffffff;
+    padding-top: 12%;
+    background: rgb(33, 26, 26);
+    min-height: 100vh;
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  #customGroup > .inputIcon {
+    position: relative;
+    top: 20px;
+    left: 1px;
+    float: left;
+  }
+  .btnCustom {
+    width: 100%;
+    border-radius: 30px;
+  }
+  #floatingInput:focus {
+    outline-width: 0;
+    outline: none;
+  }
+  #floatingInput{
+    width: 100%;
+    border-radius: 8px;
+    background: rgb(33, 26, 26);
+    color: #ffffff;
+    border: none;
+    padding-bottom: 10px;
+  }
+  #floatingInput2:focus {
+    outline-width: 0;
+    outline: none;
+  }
+  #floatingInput2{
+    width: 100%;
+    border-radius: 8px;
+    background: rgb(33, 26, 26);
+    color: #ffffff;
+    border: none;
+    padding-bottom: 10px;
+  }
+  
+}
+
+/* footer {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+} */
