@@ -182,8 +182,8 @@ const Signup = () => {
                   </div>
                   <div className="col-11">
                     <select id="floatingInput" onChange={handleChange("sex")}>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
+                      <option value="Man">Man</option>
+                      <option value="Woman">Woman</option>
                       <option value="Other">Other</option>
                     </select>
                   </div>

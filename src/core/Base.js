@@ -1,18 +1,10 @@
 import React from "react";
-import Menu from "./Menu";
+import MenuL from "./MenuL";
 
-const Base = ({
-  title = "My Title",
-  description = "My desription",
-  className = "pt-4",
-  children,
-}) => (
+const Base = ({}) => (
   <div className="baseClass">
-    <Menu />
-    <div className="container">
-      <h1 className="text-center mt-4">{title}</h1>
-      <div className={className}>{children}</div>
-    </div>
+    <MenuL />
+    <div className="container"></div>
   </div>
 );
 

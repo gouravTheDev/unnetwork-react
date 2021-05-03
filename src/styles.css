@@ -132,7 +132,7 @@ body {
     outline: none;
   }
   #floatingInput{
-    width: 100%;
+    /* width: 100%; */
     border-radius: 8px;
     background: rgb(33, 26, 26);
     color: #ffffff;
@@ -151,7 +151,10 @@ body {
     border: none;
     padding-bottom: 10px;
   }
-  
+  .customMenu{
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(218, 206, 206);
+  }
 }
 
 /* footer {
