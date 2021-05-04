@@ -161,7 +161,7 @@ body {
     height: 20px;
     left: -30px;
     top: 40px;
-    z-index: 999999;
+    z-index: 0;
   }
   .editprofileBtn {
     position: relative;
@@ -169,7 +169,7 @@ body {
     height: 20px;
     left: 6px;
     top: -5px;
-    z-index: 999999;
+    z-index: 0;
   }
   .borderedCol{
     padding-bottom: 6px;
