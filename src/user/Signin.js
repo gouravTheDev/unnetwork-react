@@ -105,10 +105,10 @@ const Signin = () => {
               >
                 <div className="my-0 py-0">Email address</div>
                 <div className="row mt-2">
-                  <div className="col-md-2 col-sm-2 pt-1" style={{width: '10%'}}>
+                  <div className="col-1 pt-1">
                     <i className="fas fa-envelope inputIcon"></i>
                   </div>
-                  <div className="col-md-10 col-sm-10">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput"
                       type="email"
@@ -131,18 +131,21 @@ const Signin = () => {
                 id="customGroup"
               >
                 <div className="my-0 py-0">Password</div>
-                <div className="row mt-2">
-                  <div className="col-1 pt-1">
+                <div className="row mt-2 pr-2">
+                  <div className="col-1 pt-0">
                     <i className="fas fa-lock inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-9 pl-2">
                     <input
                       id="floatingInput2"
                       type="password"
-                      placeholder="*** *** ***"
+                      placeholder="Password"
                       onChange={handleChange("password")}
                       required
                     />
+                  </div>
+                  <div className="col-1 pt-1 text-right">
+                    <i className="fas fa-eye" style={{color: '#B2B2AF'}}></i>
                   </div>
                 </div>
               </div>

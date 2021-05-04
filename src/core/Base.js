@@ -1,10 +1,10 @@
 import React from "react";
 import MenuL from "./MenuL";
 
-const Base = ({}) => (
+const Base = ({children}) => (
   <div className="baseClass">
     <MenuL />
-    <div className="container"></div>
+    {children}
   </div>
 );
 

@@ -101,7 +101,7 @@ const Signup = () => {
                   <div className="col-1 pt-0">
                     <i className="fas fa-user inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput"
                       type="text"
@@ -127,7 +127,7 @@ const Signup = () => {
                   <div className="col-1 pt-0">
                     <i className="fas fa-user inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput"
                       type="text"
@@ -153,7 +153,7 @@ const Signup = () => {
                   <div className="col-1 pt-1">
                     <i className="fas fa-envelope inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput"
                       type="email"
@@ -180,7 +180,7 @@ const Signup = () => {
                   <div className="col-1 pt-0">
                     <i className="fas fa-mars-stroke inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-10 pl-2">
                     <select id="floatingInput" onChange={handleChange("sex")}>
                       <option value="Man">Man</option>
                       <option value="Woman">Woman</option>
@@ -201,18 +201,21 @@ const Signup = () => {
                 id="customGroup"
               >
                 <div className="my-0 py-0">Password</div>
-                <div className="row mt-2">
+                <div className="row mt-2 pr-2">
                   <div className="col-1 pt-1">
                     <i className="fas fa-lock inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-9 pl-2">
                     <input
                       id="floatingInput2"
                       type="password"
-                      placeholder="*** *** ***"
+                      placeholder="Password"
                       onChange={handleChange("password")}
                       required
                     />
+                  </div>
+                  <div className="col-1 pt-1 text-right">
+                    <i className="fas fa-eye" style={{color: '#B2B2AF'}}></i>
                   </div>
                 </div>
               </div>
@@ -231,7 +234,7 @@ const Signup = () => {
                   <div className="col-1 pt-1">
                     <i className="fas fa-map-marker inputIcon"></i>
                   </div>
-                  <div className="col-11">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput2"
                       type="text"
