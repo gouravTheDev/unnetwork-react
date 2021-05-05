@@ -8,8 +8,8 @@ const Signup = () => {
     first_name: "",
     last_name: "",
     email: "",
-    sex: "",
-    location: "",
+    sex: "Man",
+    address: "",
     password: "",
     error: "",
     success: false,
@@ -20,7 +20,7 @@ const Signup = () => {
     last_name,
     email,
     sex,
-    location,
+    address,
     password,
     profession,
     error,
@@ -40,9 +40,9 @@ const Signup = () => {
       last_name == "" ||
       email == "" ||
       sex == "" ||
-      profession == "" ||
-      location == ""
+      address == ""
     ) {
+      console.log(values)
       setValues({
         ...values,
         error: "Please fill all the fields",
@@ -58,7 +58,7 @@ const Signup = () => {
       });
       return;
     }
-    signup({ first_name, last_name, email, sex, password, location })
+    signup({ first_name, last_name, email, sex, password, address })
       .then((data) => {
         if (data.status == 201) {
           setValues({ ...values, error: data.message, success: false });
@@ -68,8 +68,8 @@ const Signup = () => {
             first_name: "",
             last_name: "",
             email: "",
-            sex: "",
-            location: "",
+            sex: "Man",
+            address: "",
             password: "",
             error: "",
             success: true,
@@ -241,7 +241,7 @@ const Signup = () => {
                       id="floatingInput2"
                       type="text"
                       placeholder="LA, California"
-                      onChange={handleChange("location")}
+                      onChange={handleChange("address")}
                       required
                     />
                   </div>
@@ -267,6 +267,9 @@ const Signup = () => {
               </button>
             </form>
           </div>
+          <div className="col-12 mx-auto text-center">
+            <span>{values.error != "" ? values.error : ""}</span>
+          </div>
           <div className="col-md-6 col-sm-12 mt-3">
             <p style={{ fontSize: "13px" }}>
               Already have an account?{" "}
@@ -277,37 +280,6 @@ const Signup = () => {
                 Log In
               </Link>
             </p>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const successMessage = () => {
-    return (
-      <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <div
-            className="alert alert-success"
-            style={{ display: success ? "" : "none" }}
-          >
-            New account was created successfully. Please
-            <Link to="/signin">Login Here</Link>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const errorMessage = () => {
-    return (
-      <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <div
-            className="alert alert-danger"
-            style={{ display: error ? "" : "none" }}
-          >
-            {error}
           </div>
         </div>
       </div>

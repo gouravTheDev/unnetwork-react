@@ -10,14 +10,6 @@ export default function Home() {
   // const [error, setError] = useState(false);
   // const [token, setToken] = useState("");
 
-  // // useEffect(() => {
-  // //   let token = cookies.get("token");
-  // //   if (token) {
-  // //     console.log("hello");
-  // //     setToken(token);
-  // //   }
-  // // });
-
   return (
     <div>
       <div className="homeD">

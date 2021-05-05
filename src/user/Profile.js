@@ -3,10 +3,11 @@ import Base from "../core/Base";
 import { Modal, Button } from "react-bootstrap";
 import Cookies from "universal-cookie";
 import UserApiCalls from "../core/helper/userApiCalls";
+import { signout } from "../auth/helper";
 
 const cookies = new Cookies();
 
-const Profile = () => {
+const Profile = ({ history }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
   const [showP, setShowP] = useState(false);
   const handleCloseP = () => setShowP(false);
   const handleShowP = () => {
-    setValuesP({ password_1: '', password_2: '', msgP: "" });
+    setValuesP({ password_1: "", password_2: "", msgP: "" });
     setShowP(true);
   };
 
@@ -134,7 +135,7 @@ const Profile = () => {
         className="container"
         style={{ borderBottom: "1px solid rgb(218, 206, 206)" }}
       >
-        <div className="row pt-3">
+        <div className="row pt-2">
           <div className="col-12 mx-auto text-center pt-4">
             <img src="/fig/userIm.png" />
             <img src="/fig/edit.png" className="profilePicEdit" />
@@ -255,7 +256,6 @@ const Profile = () => {
                   onChange={handleChange("phone")}
                   value={values.phone}
                   type="text"
-                  readOnly
                   placeholder="Enter Phone"
                 />
               </div>
@@ -339,6 +339,19 @@ const Profile = () => {
         </Modal.Body>
       </Modal>
       {/*Edit Profile Modal Ends */}
+
+      <div className="container row mt-2">
+        <div className="col-12 text-center">
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              signout(() => {
+                history.push("/");
+              });
+            }}
+          >Sign Out</button>
+        </div>
+      </div>
     </Base>
   );
 };

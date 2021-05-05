@@ -4,7 +4,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
 export const signup = (user) => {
-  return fetch(`${API}/user/signup`, {
+  return fetch(`${API}/user/sign-up`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -46,7 +46,7 @@ export const signout = (next) => {
     cookies.remove("token", { path: "/" });
     next();
 
-    return fetch(`${API}/user/logout`, {
+    return fetch(`${API}/user/sign-out`, {
       method: "GET",
     })
       .then((response) => console.log("signout success"))

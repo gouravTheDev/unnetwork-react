@@ -54,7 +54,6 @@ class UserApiCalls {
     }
   };
 
-
 }
 
 export default new UserApiCalls();
