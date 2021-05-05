@@ -38,7 +38,7 @@ const Signin = () => {
       if (data.status == 201) {
         setValues({ ...values, error: data.message, loading: false });
       } else {
-        authenticate(data, () => {
+        authenticate(data.data, () => {
           setValues({
             ...values,
             didRedirect: true,
@@ -52,36 +52,11 @@ const Signin = () => {
 
   const performRedirect = () => {
     if (didRedirect) {
-      return <Redirect to="/user/todo" />;
+      return <Redirect to="/user/profile" />;
     }
     if (isAutheticated()) {
       return <Redirect to="/" />;
     }
-  };
-
-  const loadingMessage = () => {
-    return (
-      loading && (
-        <div className="alert alert-info">
-          <h2>Loading...</h2>
-        </div>
-      )
-    );
-  };
-
-  const errorMessage = () => {
-    return (
-      <div className="row">
-        <div className="col-md-6 offset-sm-3 text-left">
-          <div
-            className="alert alert-danger"
-            style={{ display: error ? "" : "none" }}
-          >
-            {error}
-          </div>
-        </div>
-      </div>
-    );
   };
 
   const signInForm = () => {
@@ -145,7 +120,7 @@ const Signin = () => {
                     />
                   </div>
                   <div className="col-1 pt-1 text-right">
-                    <i className="fas fa-eye" style={{color: '#B2B2AF'}}></i>
+                    <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i>
                   </div>
                 </div>
               </div>
@@ -163,6 +138,9 @@ const Signin = () => {
               </button>
             </form>
           </div>
+          <div className="col-12 mx-auto text-center">
+            <span>{values.error != "" ? values.error : ""}</span>
+          </div>
           <div className="col-md-6 col-sm-12 mt-3">
             <p style={{ fontSize: "13px" }}>
               Don't have an account yet?{" "}
@@ -179,7 +157,12 @@ const Signin = () => {
     );
   };
 
-  return <div>{signInForm()}</div>;
+  return (
+    <div>
+      {signInForm()}
+      {performRedirect()}
+    </div>
+  );
 };
 
 export default Signin;

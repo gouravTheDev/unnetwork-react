@@ -171,10 +171,20 @@ body {
     top: -5px;
     z-index: 0;
   }
-  .borderedCol{
+  .borderedCol {
     padding-bottom: 6px;
     border-bottom: 1px solid rgb(218, 206, 206);
   }
+  input:focus{
+    background: #000000;
+  }
+
+  /* input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px rgb(33, 26, 26) inset !important;
+  } */
 }
 
 /* footer {

@@ -22,6 +22,7 @@ const Signup = () => {
     sex,
     location,
     password,
+    profession,
     error,
     success,
   } = values;
@@ -39,6 +40,7 @@ const Signup = () => {
       last_name == "" ||
       email == "" ||
       sex == "" ||
+      profession == "" ||
       location == ""
     ) {
       setValues({

@@ -19,7 +19,7 @@ export const signup = (user) => {
 };
 
 export const signin = (user) => {
-  return fetch(`${API}/user/login`, {
+  return fetch(`${API}/user/sign-in`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -35,7 +35,7 @@ export const signin = (user) => {
 
 export const authenticate = (data, next) => {
   if (typeof window !== "undefined") {
-    cookies.set("token", data.token, { path: "/" });
+    cookies.set("token", data.api_token, { path: "/" });
     next();
   }
 };
