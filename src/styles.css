@@ -62,9 +62,8 @@ body {
   padding-bottom: 5px;
   border-radius: 24px;
   font-size: 20px;
-  background: #e43411;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000000;
+  background: #fffcfc;
+  color: #000000;
 }
 .menuIconText {
   margin-top: 1px;
@@ -93,9 +92,9 @@ body {
     width: 100%;
   }
   .homeImgM {
-    width: 70%;
+    width: 90%;
     height: auto;
-    margin-top: 15px;
+    margin-top: 70px;
     text-align: center;
   }
   .textLM {
@@ -177,6 +176,14 @@ body {
   }
   input:focus{
     background: #000000;
+  }
+  #inputFile{
+    display: none;
+  }
+  .profilePic{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
   }
 
   /* input:-webkit-autofill,

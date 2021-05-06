@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import Base from "../core/Base";
 import { Link } from "react-router-dom";
-import { signup } from "../auth/helper";
+import { Redirect } from "react-router-dom";
+import { signup, authenticate, isAutheticated } from "../auth/helper";
 
 const Signup = () => {
+  const performRedirect = () => {
+    if (didRedirect) {
+      return <Redirect to="/user/profile" />;
+    }
+    if (isAutheticated()) {
+      return <Redirect to="/" />;
+    }
+  };
+
   const [values, setValues] = useState({
     first_name: "",
     last_name: "",
@@ -12,6 +22,7 @@ const Signup = () => {
     address: "",
     password: "",
     error: "",
+    didRedirect: false,
     success: false,
   });
 
@@ -23,15 +34,16 @@ const Signup = () => {
     address,
     password,
     profession,
+    didRedirect,
     error,
     success,
   } = values;
-
+  const { user } = isAutheticated();
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     setValues({ ...values, error: false });
     if (
@@ -42,7 +54,7 @@ const Signup = () => {
       sex == "" ||
       address == ""
     ) {
-      console.log(values)
+      console.log(values);
       setValues({
         ...values,
         error: "Please fill all the fields",
@@ -58,25 +70,21 @@ const Signup = () => {
       });
       return;
     }
-    signup({ first_name, last_name, email, sex, password, address })
-      .then((data) => {
-        if (data.status == 201) {
-          setValues({ ...values, error: data.message, success: false });
-        } else {
+    let data = await signup({ first_name, last_name, email, sex, password, address });
+    if (data && data != {}) {
+      if (data.status == 201) {
+        setValues({ ...values, error: data.message});
+      } else {
+        authenticate(data.data, () => {
           setValues({
             ...values,
-            first_name: "",
-            last_name: "",
-            email: "",
-            sex: "Man",
-            address: "",
-            password: "",
-            error: "",
-            success: true,
+            didRedirect: true,
           });
-        }
-      })
-      .catch(console.log("Error in signup"));
+        });
+      }
+    } else {
+      setValues({ ...values, error: "Could not process now!"});
+    }
   };
 
   const signUpForm = () => {
@@ -217,7 +225,7 @@ const Signup = () => {
                     />
                   </div>
                   <div className="col-1 pt-1 text-right">
-                    <i className="fas fa-eye" style={{color: '#B2B2AF'}}></i>
+                    <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i>
                   </div>
                 </div>
               </div>
@@ -286,7 +294,12 @@ const Signup = () => {
     );
   };
 
-  return <div>{signUpForm()}</div>;
+  return (
+    <div>
+      {signUpForm()}
+      {performRedirect()}
+    </div>
+  );
 };
 
 export default Signup;

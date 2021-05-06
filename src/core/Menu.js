@@ -27,15 +27,15 @@ const Menu = ({ history }) => (
         >Network</span>
       </a>
       {isAutheticated() && (
-        <li className="nav-item ml-auto mr-3">
+        <li className="nav-item ml-auto mr-1" style={{marginTop: '7px'}}>
           <span
-            className="btn"
+            className="btn menuIcon"
             style={{ cursor: "pointer" }}
             style={{
               borderRadius: "30px",
-              background: "#F72D2D",
-              color: "#ffffff",
-              fontSize: "20px",
+              background: "#fff",
+              color: "#000",
+              fontSize: "18px",
             }}
             onClick={() => {
               signout(() => {

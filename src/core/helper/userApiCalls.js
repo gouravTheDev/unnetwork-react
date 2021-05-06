@@ -54,6 +54,22 @@ class UserApiCalls {
     }
   };
 
+  uploadProfilePic = async (token, data) => {
+    try {
+      console.log(data)
+      let uploadProfilePic = await fetch(`${API}/user/upload-profile-picture`, {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        body: data
+      });
+      uploadProfilePic = await uploadProfilePic.json();
+      return uploadProfilePic;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export default new UserApiCalls();

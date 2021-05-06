@@ -46,8 +46,11 @@ export const signout = (next) => {
     cookies.remove("token", { path: "/" });
     next();
 
-    return fetch(`${API}/user/sign-out`, {
+    return fetch(`${API}/user/logout`, {
       method: "GET",
+      headers: {
+        Authorization: "Bearer "+token
+      },
     })
       .then((response) => console.log("signout success"))
       .catch((err) => console.log(err));

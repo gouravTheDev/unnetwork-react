@@ -14,6 +14,20 @@ const Profile = ({ history }) => {
     setValues({ ...values, msg: "" });
     setShow(true);
   };
+  const [values, setValues] = useState({
+    id: "",
+    email: "",
+    first_name: "",
+    last_name: "",
+    phone: "",
+    profession: "",
+    profile_pic: "",
+    address: "",
+    msg: "",
+  });
+
+  const { first_name, last_name, sex, address, profession, phone } = values;
+  let inputFile = "";
 
   const [token, setToken] = useState("");
 
@@ -24,19 +38,6 @@ const Profile = ({ history }) => {
     setShowP(true);
   };
 
-  const [values, setValues] = useState({
-    id: "",
-    email: "",
-    first_name: "",
-    last_name: "",
-    phone: "",
-    profession: "",
-    address: "",
-    msg: "",
-  });
-
-  const { first_name, last_name, sex, address, profession, msg } = values;
-
   const [valuesP, setValuesP] = useState({
     password_1: "",
     password_2: "",
@@ -45,12 +46,37 @@ const Profile = ({ history }) => {
 
   const { password_1, password_2, msgP } = valuesP;
 
-  const handleChange = (name) => (event) => {
-    setValues({ ...values, [name]: event.target.value });
+  const handleChange = (name) => (e) => {
+    e.preventDefault();
+  };
+
+  const handleFileUpload = (name) => async (event) => {
+    console.log(event.target.files[0]);
+    let formData = new FormData();
+    formData.set("profile_pic", event.target.files[0]);
+
+    for (var value of formData.values()) {
+      console.log(value);
+    }
+
+    let uploadProfilePic = await UserApiCalls.uploadProfilePic(token, formData);
+
+    if (uploadProfilePic) {
+      console.log(uploadProfilePic)
+      if (uploadProfilePic.status == 200) {
+        setValues({ ...values, profile_pic: uploadProfilePic.data.profile_pic });
+      }
+    }
   };
 
   const handleChangeP = (name) => (event) => {
     setValuesP({ ...valuesP, [name]: event.target.value });
+  };
+
+  const uploadClick = (e) => {
+    e.preventDefault();
+    inputFile.click();
+    return false;
   };
 
   async function fetchData() {
@@ -67,6 +93,7 @@ const Profile = ({ history }) => {
         email: dataR.email,
         phone: dataR.phone,
         profession: dataR.profession,
+        profile_pic: dataR.profile_pic,
         address: dataR.address,
         id: dataR.id,
       });
@@ -83,6 +110,7 @@ const Profile = ({ history }) => {
       last_name == "" ||
       sex == "" ||
       profession == "" ||
+      phone == "" ||
       address == ""
     ) {
       setValues({
@@ -131,18 +159,32 @@ const Profile = ({ history }) => {
 
   return (
     <Base title="Profile page">
+      <form>
+        <input
+          id="inputFile"
+          type="file"
+          ref={(input) => {
+            inputFile = input;
+          }}
+          onChange={handleFileUpload(this)}
+        />
+      </form>
       <div
         className="container"
         style={{ borderBottom: "1px solid rgb(218, 206, 206)" }}
       >
         <div className="row pt-2">
           <div className="col-12 mx-auto text-center pt-4">
-            <img src="/fig/userIm.png" />
-            <img src="/fig/edit.png" className="profilePicEdit" />
+            <img src={values.profile_pic ? 'https://unnetwork-admin.codewithbogo.in/uploads/user/profile_pic/'+values.profile_pic : "/fig/userIm.png" } className="profilePic" />
+            <img
+              src="/fig/edit.png"
+              className="profilePicEdit"
+              onClick={uploadClick}
+            />
           </div>
           <div className="col-12 text-center mt-4 mb-2">
             <h5>
-              General Information{" "}
+              General Information
               <img
                 src="/fig/edit.png"
                 className="editprofileBtn"
@@ -340,7 +382,7 @@ const Profile = ({ history }) => {
       </Modal>
       {/*Edit Profile Modal Ends */}
 
-      <div className="container row mt-2">
+      <div className="container row mt-2 mb-3">
         <div className="col-12 text-center">
           <button
             className="btn btn-danger"
@@ -349,7 +391,9 @@ const Profile = ({ history }) => {
                 history.push("/");
               });
             }}
-          >Sign Out</button>
+          >
+            Sign Out
+          </button>
         </div>
       </div>
     </Base>
