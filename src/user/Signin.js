@@ -65,8 +65,8 @@ const Signin = () => {
         <div className="row">
           <div className="col-md-12 mb-2">
             <h1
-              className="font-weight-bold mt-4 mb-3"
-              style={{ fontSize: "2.6em" }}
+              className="mt-4 mb-3"
+              style={{ fontSize: "2.6em", fontWeight: '900' }}
             >
               Sign in
             </h1>
@@ -77,9 +77,10 @@ const Signin = () => {
                 className="form-group mb-4"
                 style={{
                   marginTop: "36px",
-                  borderRadius: "13px",
+                  borderRadius: "15px",
                   border: "1px solid #fff",
                   padding: "10px",
+                  paddingLeft: '14px',
                   paddingTop: "20px",
                   paddingBottom: "12px",
                 }}
@@ -88,9 +89,9 @@ const Signin = () => {
                 <div className="mt-0 mb-2 py-0">Email address</div>
                 <div className="row mt-2">
                   <div className="col-1">
-                    <img src="/fig/email.png" className="inputIcon" />
+                    <img src="/fig/email.svg" className="inputIcon"  style={{height: '18px'}} />
                   </div>
-                  <div className="col-10 pl-3">
+                  <div className="col-10 pl-2">
                     <input
                       id="floatingInput"
                       type="email"
@@ -106,9 +107,10 @@ const Signin = () => {
                 className="form-group mb-4"
                 style={{
                   marginTop: "32px",
-                  borderRadius: "13px",
+                  borderRadius: "15px",
                   border: "1px solid #fff",
                   padding: "10px",
+                  paddingLeft: '14px',
                   paddingTop: "20px",
                   paddingBottom: "12px",
                 }}
@@ -117,9 +119,9 @@ const Signin = () => {
                 <div className="mt-0 mb-2 py-0">Password</div>
                 <div className="row mt-2 pr-2">
                   <div className="col-1">
-                    <img src="/fig/lock.png" className="inputIcon" />
+                    <img src="/fig/lock.svg" className="inputIcon" style={{height: '18px'}} />
                   </div>
-                  <div className="col-9 pl-3">
+                  <div className="col-9 pl-2">
                     <input
                       id="floatingInput2"
                       type="password"
@@ -129,20 +131,21 @@ const Signin = () => {
                     />
                   </div>
                   <div className="col-1 pt-1 text-right">
-                    <img src="/fig/view.png"  style={{ color: "#B2B2AF" }} />
+                    <img src="/fig/view.svg"  style={{ color: "#B2B2AF", height: '18px' }}  />
                     {/* <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i> */}
                   </div>
                 </div>
               </div>
-              <div className="form-group mt-3">
+              <div className="form-group" style={{marginTop: '40px', marginBottom: '24px'}}>
                 <p style={{ fontSize: "13px" }}>
                   Creating an account means you're okay with our Terms of
                   Service out Privacy Policy
                 </p>
               </div>
               <button
+              style={{marginBottom: '46px', paddingTop: '10px', paddingBottom: '10px', fontSize: "1.1em" }}
                 onClick={onSubmit}
-                className="btn btn-info mt-3 mb-3 btnCustom"
+                className="btn btn-info mt-3 btnCustom"
               >
                 Log In
               </button>
@@ -156,7 +159,7 @@ const Signin = () => {
               Don't have an account yet?{" "}
               <Link
                 to="/signup"
-                style={{ textDecoration: "none", color: "#FDC605" }}
+                style={{ textDecoration: "none", color: "#FA983B" }}
               >
                 Register
               </Link>

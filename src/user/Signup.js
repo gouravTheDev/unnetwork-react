@@ -70,10 +70,17 @@ const Signup = () => {
       });
       return;
     }
-    let data = await signup({ first_name, last_name, email, sex, password, address });
+    let data = await signup({
+      first_name,
+      last_name,
+      email,
+      sex,
+      password,
+      address,
+    });
     if (data && data != {}) {
       if (data.status == 201) {
-        setValues({ ...values, error: data.message});
+        setValues({ ...values, error: data.message });
       } else {
         authenticate(data.data, () => {
           setValues({
@@ -83,7 +90,7 @@ const Signup = () => {
         });
       }
     } else {
-      setValues({ ...values, error: "Could not process now!"});
+      setValues({ ...values, error: "Could not process now!" });
     }
   };
 
@@ -92,7 +99,12 @@ const Signup = () => {
       <div className="loginHome container">
         <div className="row">
           <div className="col-md-12 mb-3">
-            <h1 className="ml-2">Register</h1>
+            <h1
+              className="mt-4 mb-3"
+              style={{ fontSize: "2.6em", fontWeight: "900" }}
+            >
+              Register
+            </h1>
           </div>
           <div className="col-md-6 offset-sm-3 text-left">
             <form>
@@ -102,7 +114,8 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
@@ -128,7 +141,8 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
@@ -154,14 +168,19 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
                 <div className="my-0 py-0">Email address</div>
                 <div className="row mt-2">
-                  <div className="col-1 pt-1">
-                    <i className="fas fa-envelope inputIcon"></i>
+                  <div className="col-1">
+                    <img
+                      src="/fig/email.svg"
+                      className="inputIcon"
+                      style={{ height: "18px" }}
+                    />
                   </div>
                   <div className="col-10 pl-2">
                     <input
@@ -181,7 +200,8 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
@@ -206,14 +226,19 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
                 <div className="my-0 py-0">Password</div>
                 <div className="row mt-2 pr-2">
-                  <div className="col-1 pt-1">
-                    <i className="fas fa-lock inputIcon"></i>
+                  <div className="col-1">
+                  <img
+                      src="/fig/lock.svg"
+                      className="inputIcon"
+                      style={{ height: "18px" }}
+                    />
                   </div>
                   <div className="col-9 pl-2">
                     <input
@@ -225,7 +250,11 @@ const Signup = () => {
                     />
                   </div>
                   <div className="col-1 pt-1 text-right">
-                    <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i>
+                  <img
+                      src="/fig/view.svg"
+                      className="inputIcon"
+                      style={{ height: "18px" }}
+                    />
                   </div>
                 </div>
               </div>
@@ -235,7 +264,8 @@ const Signup = () => {
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
@@ -268,8 +298,14 @@ const Signup = () => {
                 {error}
               </div>
               <button
+                style={{
+                  marginBottom: "46px",
+                  paddingTop: "10px",
+                  paddingBottom: "10px",
+                  fontSize: "1.1em",
+                }}
                 onClick={onSubmit}
-                className="btn btn-info mt-3 mb-3 btnCustom"
+                className="btn btn-info mt-3 btnCustom"
               >
                 Create an Account
               </button>
@@ -283,7 +319,7 @@ const Signup = () => {
               Already have an account?{" "}
               <Link
                 to="/signin"
-                style={{ textDecoration: "none", color: "#FDC605" }}
+                style={{ textDecoration: "none", color: "#FA983B" }}
               >
                 Log In
               </Link>

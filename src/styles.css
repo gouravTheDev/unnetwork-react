@@ -85,7 +85,7 @@ body {
     display: none;
   }
   .homeM {
-    background: rgb(33, 26, 26);
+    background: rgb(0, 0, 0);
     min-height: 100vh;
     height: 100%;
     max-width: 100%;
@@ -110,7 +110,7 @@ body {
   .loginHome {
     color: #ffffff;
     padding-top: 12%;
-    background: rgb(33, 26, 26);
+    background: rgb(0, 0, 0);
     min-height: 100vh;
     height: 100%;
     max-width: 100%;
@@ -120,6 +120,7 @@ body {
     position: relative;
     top: 20px;
     left: 1px;
+    height: 5px;
     float: left;
   }
   .btnCustom {
@@ -133,7 +134,7 @@ body {
   #floatingInput {
     width: 100%;
     border-radius: 8px;
-    background: rgb(33, 26, 26);
+    background: rgb(0, 0, 0);
     color: #ffffff;
     border: none;
     padding-bottom: 10px;
@@ -145,7 +146,7 @@ body {
   #floatingInput2 {
     width: 100%;
     border-radius: 8px;
-    background: rgb(33, 26, 26);
+    background: rgb(0, 0, 0);
     color: #ffffff;
     border: none;
     padding-bottom: 10px;
@@ -190,7 +191,7 @@ body {
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 1000px rgb(33, 26, 26) inset !important;
+    -webkit-box-shadow: 0 0 0 1000px rgb(10, 8, 8) inset !important;
   } */
 }
 
