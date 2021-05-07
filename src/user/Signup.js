@@ -26,6 +26,8 @@ const Signup = () => {
     success: false,
   });
 
+  const [passwordShown, setPasswordShown] = useState(false);
+
   const {
     first_name,
     last_name,
@@ -39,8 +41,13 @@ const Signup = () => {
     success,
   } = values;
   const { user } = isAutheticated();
+
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
+  };
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
   };
 
   const onSubmit = async (event) => {
@@ -243,7 +250,7 @@ const Signup = () => {
                   <div className="col-9 pl-2">
                     <input
                       id="floatingInput2"
-                      type="password"
+                      type={passwordShown ? "text" : "password"}
                       placeholder="Password"
                       onChange={handleChange("password")}
                       required
@@ -254,6 +261,7 @@ const Signup = () => {
                       src="/fig/view.svg"
                       className="inputIcon"
                       style={{ height: "18px" }}
+                      onClick={togglePasswordVisiblity}
                     />
                   </div>
                 </div>
