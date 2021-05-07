@@ -64,26 +64,33 @@ const Signin = () => {
       <div className="loginHome container">
         <div className="row">
           <div className="col-md-12 mb-2">
-            <h1 className="ml-2">Sign in</h1>
+            <h1
+              className="font-weight-bold mt-4 mb-3"
+              style={{ fontSize: "2.6em" }}
+            >
+              Sign in
+            </h1>
           </div>
           <div className="col-md-6 offset-sm-3">
             <form>
               <div
-                className="form-group mb-4 mt-4"
+                className="form-group mb-4"
                 style={{
+                  marginTop: "36px",
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
-                <div className="my-0 py-0">Email address</div>
+                <div className="mt-0 mb-2 py-0">Email address</div>
                 <div className="row mt-2">
-                  <div className="col-1 pt-1">
-                    <i className="fas fa-envelope inputIcon"></i>
+                  <div className="col-1">
+                    <img src="/fig/email.png" className="inputIcon" />
                   </div>
-                  <div className="col-10 pl-2">
+                  <div className="col-10 pl-3">
                     <input
                       id="floatingInput"
                       type="email"
@@ -96,21 +103,23 @@ const Signin = () => {
               </div>
 
               <div
-                className="form-group mb-4 mt-4"
+                className="form-group mb-4"
                 style={{
+                  marginTop: "32px",
                   borderRadius: "13px",
                   border: "1px solid #fff",
                   padding: "10px",
-                  paddingBottom: "5px",
+                  paddingTop: "20px",
+                  paddingBottom: "12px",
                 }}
                 id="customGroup"
               >
-                <div className="my-0 py-0">Password</div>
+                <div className="mt-0 mb-2 py-0">Password</div>
                 <div className="row mt-2 pr-2">
-                  <div className="col-1 pt-0">
-                    <i className="fas fa-lock inputIcon"></i>
+                  <div className="col-1">
+                    <img src="/fig/lock.png" className="inputIcon" />
                   </div>
-                  <div className="col-9 pl-2">
+                  <div className="col-9 pl-3">
                     <input
                       id="floatingInput2"
                       type="password"
@@ -120,7 +129,8 @@ const Signin = () => {
                     />
                   </div>
                   <div className="col-1 pt-1 text-right">
-                    <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i>
+                    <img src="/fig/view.png"  style={{ color: "#B2B2AF" }} />
+                    {/* <i className="fas fa-eye" style={{ color: "#B2B2AF" }}></i> */}
                   </div>
                 </div>
               </div>

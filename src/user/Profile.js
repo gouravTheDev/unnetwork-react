@@ -14,6 +14,18 @@ const Profile = ({ history }) => {
     setValues({ ...values, msg: "" });
     setShow(true);
   };
+
+  let inputFile = "";
+
+  const [token, setToken] = useState("");
+
+  const [showP, setShowP] = useState(false);
+  const handleCloseP = () => setShowP(false);
+  const handleShowP = () => {
+    setValuesP({ password_1: "", password_2: "", msgP: "" });
+    setShowP(true);
+  };
+
   const [values, setValues] = useState({
     id: "",
     email: "",
@@ -27,16 +39,6 @@ const Profile = ({ history }) => {
   });
 
   const { first_name, last_name, sex, address, profession, phone } = values;
-  let inputFile = "";
-
-  const [token, setToken] = useState("");
-
-  const [showP, setShowP] = useState(false);
-  const handleCloseP = () => setShowP(false);
-  const handleShowP = () => {
-    setValuesP({ password_1: "", password_2: "", msgP: "" });
-    setShowP(true);
-  };
 
   const [valuesP, setValuesP] = useState({
     password_1: "",
@@ -46,8 +48,8 @@ const Profile = ({ history }) => {
 
   const { password_1, password_2, msgP } = valuesP;
 
-  const handleChange = (name) => (e) => {
-    e.preventDefault();
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, [name]: event.target.value });
   };
 
   const handleFileUpload = (name) => async (event) => {
@@ -62,9 +64,12 @@ const Profile = ({ history }) => {
     let uploadProfilePic = await UserApiCalls.uploadProfilePic(token, formData);
 
     if (uploadProfilePic) {
-      console.log(uploadProfilePic)
+      console.log(uploadProfilePic);
       if (uploadProfilePic.status == 200) {
-        setValues({ ...values, profile_pic: uploadProfilePic.data.profile_pic });
+        setValues({
+          ...values,
+          profile_pic: uploadProfilePic.data.profile_pic,
+        });
       }
     }
   };
@@ -76,7 +81,7 @@ const Profile = ({ history }) => {
   const uploadClick = (e) => {
     e.preventDefault();
     inputFile.click();
-    return false;
+    // return false;
   };
 
   async function fetchData() {
@@ -175,7 +180,15 @@ const Profile = ({ history }) => {
       >
         <div className="row pt-2">
           <div className="col-12 mx-auto text-center pt-4">
-            <img src={values.profile_pic ? 'https://unnetwork-admin.codewithbogo.in/uploads/user/profile_pic/'+values.profile_pic : "/fig/userIm.png" } className="profilePic" />
+            <img
+              src={
+                values.profile_pic
+                  ? "https://unnetwork-admin.codewithbogo.in/uploads/user/profile_pic/" +
+                    values.profile_pic
+                  : "/fig/userIm.png"
+              }
+              className="profilePic"
+            />
             <img
               src="/fig/edit.png"
               className="profilePicEdit"

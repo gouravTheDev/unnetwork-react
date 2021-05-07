@@ -40,7 +40,7 @@ html body {
 }
 
 body {
-  font-family: "Acme", sans-serif;
+  font-family: "Inter", sans-serif;
   background: #ffffff;
   max-width: 100%;
   max-height: 100%;
@@ -174,13 +174,13 @@ body {
     padding-bottom: 6px;
     border-bottom: 1px solid rgb(218, 206, 206);
   }
-  input:focus{
+  input:focus {
     background: #000000;
   }
-  #inputFile{
+  #inputFile {
     display: none;
   }
-  .profilePic{
+  .profilePic {
     height: 100px;
     width: 100px;
     border-radius: 50%;
