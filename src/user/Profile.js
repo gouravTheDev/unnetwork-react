@@ -4,6 +4,7 @@ import { Modal, Button } from "react-bootstrap";
 import Cookies from "universal-cookie";
 import UserApiCalls from "../core/helper/userApiCalls";
 import { signout } from "../auth/helper";
+import { BACKEND_URL } from "../backend";
 
 const cookies = new Cookies();
 
@@ -18,6 +19,7 @@ const Profile = ({ history }) => {
   let inputFile = "";
 
   const [token, setToken] = useState("");
+  const [backEndUrl, setBackEndUrl] = useState(BACKEND_URL);
 
   const [showP, setShowP] = useState(false);
   const handleCloseP = () => setShowP(false);
@@ -183,7 +185,7 @@ const Profile = ({ history }) => {
             <img
               src={
                 values.profile_pic
-                  ? "https://unnetwork-admin.codewithbogo.in/uploads/user/profile_pic/" +
+                  ? backEndUrl + "/uploads/user/profile_pic/" +
                     values.profile_pic
                   : "/fig/userIm.png"
               }
@@ -381,7 +383,7 @@ const Profile = ({ history }) => {
                   placeholder="Re Enter the Password"
                 />
               </div>
-              <div className="col-12 mx-auto text-center">
+              <div className="col-12 mx-auto text-center mb-2">
                 <span>{msgP != "" ? msgP : ""}</span>
               </div>
               <div className="col-md-12 col-sm-12 mx-auto text-right">

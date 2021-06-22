@@ -176,6 +176,16 @@ const Signin = () => {
               </button>
             </form>
           </div>
+          <div className="col-md-6 col-sm-12">
+            <p style={{ fontSize: "14px" }}>
+              <Link
+                to="/forgot-password"
+                style={{ textDecoration: "none", color: "#FA983B" }}
+              >
+                Forgot Password
+              </Link>
+            </p>
+          </div>
           <div className="col-12 mx-auto text-center">
             <span>{values.error != "" ? values.error : ""}</span>
           </div>

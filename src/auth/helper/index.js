@@ -49,7 +49,7 @@ export const signout = (next) => {
     return fetch(`${API}/user/logout`, {
       method: "GET",
       headers: {
-        Authorization: "Bearer "+token
+        Authorization: "Bearer " + token,
       },
     })
       .then((response) => console.log("signout success"))
@@ -63,5 +63,22 @@ export const isAutheticated = () => {
     return false;
   } else {
     return token;
+  }
+};
+
+export const forgotPass = async (data) => {
+  try {
+    let forgotPass = await fetch(`${API}/user/forgot-password`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    forgotPass = await forgotPass.json();
+    return forgotPass;
+  } catch (error) {
+    console.log(error);
   }
 };
